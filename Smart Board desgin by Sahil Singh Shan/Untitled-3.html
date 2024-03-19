@@ -1,0 +1,85 @@
+### XML Document (employees.xml):
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+    <employee>
+        <name>John Doe</name>
+        <jobTitle>Software Engineer</jobTitle>
+        <salary>75000</salary>
+    </employee>
+    <employee>
+        <name>Jane Smith</name>
+        <jobTitle>UX Designer</jobTitle>
+        <salary>60000</salary>
+    </employee>
+    <employee>
+        <name>Bob Johnson</name>
+        <jobTitle>Project Manager</jobTitle>
+        <salary>90000</salary>
+    </employee>
+</employees>
+```
+
+### CSS Stylesheet (styles.css):
+
+```css
+/* styles.css */
+
+employees {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+employee {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 300px;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px 5px #ccc;
+}
+
+name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+jobTitle {
+    color: #555;
+    margin-bottom: 8px;
+}
+
+salary {
+    color: green;
+    font-weight: bold;
+}
+```
+
+### Displaying in Internet Explorer (index.html):
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML Display in Internet Explorer</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <?xml-stylesheet type="text/css" href="styles.css"?>
+    <xml id="employeeData" src="employees.xml"></xml>
+
+    <script>
+        var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+        xmlDoc.async = false;
+        xmlDoc.loadXML(document.getElementById("employeeData").XMLDocument.xml);
+        document.write(xmlDoc.transformNode(document.styleSheets[0]));
+    </script>
+</body>
+</html>
+```
